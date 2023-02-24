@@ -1,15 +1,23 @@
 package models;
 
+import models.deplacement.Enfant;
 import models.deplacement.TypeDeplacement;
 
 import java.util.ArrayList;
 
-public class Enfant {
+public class EnfantStandard implements Enfant {
     public static int NB_ENFANTS = 0;
     private Position position;
-    private TypeEnfant typeEnfant;
     private EtatEnfant etat;
     private TypeDeplacement typeDeplacement;
+
+    @Override
+    /**
+     * @TODO Gerer le deplacment
+     */
+    public void seDeplacerVers(Position position) {
+
+    }
 
 
     public enum EtatEnfant {
@@ -19,29 +27,15 @@ public class Enfant {
         OSSEMENTS
     }
 
-    public enum TypeEnfant {
-        STANDARD,
-        FILLE,
-        GARCON,
-        CHAPEAU,
-        INSTRUMENT
-    }
 
-    public Enfant(int x, int y, TypeEnfant type) {
+
+    public EnfantStandard(int x, int y) {
         this.position = new Position(x, y);
-        this.typeEnfant = type;
         this.etat = EtatEnfant.VIVANT;
     }
 
     // Getters et setters
 
-    public TypeEnfant getTypeEnfant() {
-        return this.typeEnfant;
-    }
-
-    public void setTypeEnfant(TypeEnfant type) {
-        this.typeEnfant = type;
-    }
 
     public EtatEnfant getEtat() {
         return this.etat;
@@ -55,7 +49,6 @@ public class Enfant {
     public String toString() {
         return "Enfant{" +
                 "position=" + position +
-                ", typeEnfant=" + typeEnfant +
                 ", etat=" + etat +
                 '}';
     }
@@ -63,7 +56,7 @@ public class Enfant {
     /**
      * @TODO Gerer le changement d'état aléatoirement (voir le sujet)
      */
-    public void mourrir() {
+    public void mourir() {
        // this.etat = nouvelle etat
         NB_ENFANTS--;
         if(NB_ENFANTS == 0) {
