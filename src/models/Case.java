@@ -1,11 +1,13 @@
 package models;
 
+import models.Enfant.TypeCase;
+import static utilies.Utilities.print;
 import java.util.Arrays;
 
 public class Case {
     private int x;
     private int y;
-    typeCase type;
+    TypeCase type;
     private boolean isBloquant;
 
     private int[] hotes;
@@ -17,11 +19,14 @@ public class Case {
      * • Des rochers
      * • De l’eau
      */
-    private enum typeCase {
-        SOL, PONT, ARBRE, ROCHER, EAU
-    }
 
-    public Case(int x, int y, typeCase type, boolean isBloquant) {
+    /**
+     *
+     * @param x
+     * @param y
+     * @param type
+     */
+    public Case(int x, int y, TypeCase type) {
         this.x = x;
         this.y = y;
         this.type = type;
@@ -75,11 +80,11 @@ public class Case {
         this.y = y;
     }
 
-    public typeCase getType() {
+    public TypeCase getType() {
         return type;
     }
 
-    public void setType(typeCase type) {
+    public void setType(TypeCase type) {
         this.type = type;
     }
 
@@ -100,5 +105,28 @@ public class Case {
 
     public void setHotes(int[] hotes) {
         this.hotes = hotes;
+    }
+
+    public void afficherCase() {
+        switch (type) {
+            case SOL:
+                print(" ");
+                break;
+            case PONT:
+                print("P");
+                break;
+            case ARBRE:
+                print("#");
+                break;
+            case ROCHER:
+                print("R");
+                break;
+            case EAU:
+                print("E");
+                break;
+            default:
+                print(" ");
+                break;
+        }
     }
 }

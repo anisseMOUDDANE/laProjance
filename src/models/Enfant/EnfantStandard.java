@@ -1,5 +1,6 @@
-package models;
+package models.Enfant;
 
+import models.Position;
 import models.deplacement.Enfant;
 import models.deplacement.TypeDeplacement;
 
@@ -10,6 +11,7 @@ public class EnfantStandard implements Enfant {
     private Position position;
     private EtatEnfant etat;
     private TypeDeplacement typeDeplacement;
+    private TypeEnfant typeEnfant;
 
     @Override
     /**
@@ -20,22 +22,26 @@ public class EnfantStandard implements Enfant {
     }
 
 
-    public enum EtatEnfant {
-        VIVANT,
-        TOMBE,
-        POUSSIERE,
-        OSSEMENTS
-    }
-
-
-
+    /**
+     * Constructeur de l'enfant
+     * @param x
+     * @param y
+     */
     public EnfantStandard(int x, int y) {
         this.position = new Position(x, y);
         this.etat = EtatEnfant.VIVANT;
     }
 
+
+
+
+
+
     // Getters et setters
 
+    public static int getNbEnfants() {
+        return NB_ENFANTS;
+    }
 
     public EtatEnfant getEtat() {
         return this.etat;
@@ -44,6 +50,19 @@ public class EnfantStandard implements Enfant {
     public void setEtat(EtatEnfant etat) {
         this.etat = etat;
     }
+
+    public String  getType() {
+        return "EnfantStandard";
+    }
+
+    public TypeEnfant getTypeEnfant() {
+        return typeEnfant;
+    }
+
+    public void setTypeEnfant(TypeEnfant typeEnfant) {
+        this.typeEnfant = typeEnfant;
+    }
+
 
     @Override
     public String toString() {
@@ -57,7 +76,7 @@ public class EnfantStandard implements Enfant {
      * @TODO Gerer le changement d'état aléatoirement (voir le sujet)
      */
     public void mourir() {
-       // this.etat = nouvelle etat
+       // this.etat = nouvelle etat a generer aleatoirement
         NB_ENFANTS--;
         if(NB_ENFANTS == 0) {
             System.out.println("Vous avez perdu");
@@ -73,8 +92,5 @@ public class EnfantStandard implements Enfant {
         return this.position.getPosition();
     }
 
-    public static int getNbEnfants() {
-        return NB_ENFANTS;
-    }
 
 }

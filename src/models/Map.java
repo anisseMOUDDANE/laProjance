@@ -1,5 +1,8 @@
 package models;
 import models.Case;
+import models.Enfant.TypeCase;
+
+import static utilies.Utilities.print;
 
 /**
  * • Une carte
@@ -44,9 +47,25 @@ public class Map {
     public void afficherMap() {
         for (int i = 0; i < tailleX; i++) {
             for (int j = 0; j < tailleY; j++) {
-                System.out.print(map[i][j]);
+                map[i][j].afficherCase();
             }
             System.out.println();
+        }
+    }
+
+    public void remplirMap() {
+        for (int i = 0; i < tailleX; i++) {
+            for (int j = 0; j < tailleY; j++) {
+                if(i == 0 || i == tailleX - 1 || j == 0 || j == tailleY - 1){
+                    map[i][j] = new Case(i,j, TypeCase.ARBRE);
+                }
+                else {
+                    map[i][j] = new Case(i,j, TypeCase.SOL);
+                }
+                if(i == tailleX){
+                    System.out.println();
+                }
+            }
         }
     }
 }

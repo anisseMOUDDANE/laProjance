@@ -1,8 +1,12 @@
 package utilies;
 
 public class Utilities {
-    public static void print(Object args){
+    public static void println(Object args){
         System.out.println(args);
+    }
+
+    public static void print(String args){
+        System.out.print(args);
     }
     public static void ClearConsole(){
         try{
