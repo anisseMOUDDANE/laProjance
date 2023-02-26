@@ -1,6 +1,7 @@
 package application;
 
 import utilies.Utilities;
+import models.Map;
 
 import static utilies.Utilities.print;
 

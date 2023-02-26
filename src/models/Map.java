@@ -1,6 +1,8 @@
 package models;
 import models.Case;
 
+import java.util.Scanner;
+
 /**
  * • Une carte
  */
@@ -32,21 +34,41 @@ public class Map {
         this.map = map;
     }
 
-    public void setTailleX(int tailleX) {
-        this.tailleX = tailleX;
+    public void setTailleX() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Veuillez choisir l'axe x");
+        int x = scan.nextInt();
+        this.tailleX = x;
     }
 
-    public void setTailleY(int tailleY) {
-        this.tailleY = tailleY;
+    public void setTailleY() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Veuillez choisir l'axe y");
+        int y = scan.nextInt();
+        this.tailleY = y;
     }
 
     // genere une methode d'affichage de la map
     public void afficherMap() {
+        Scanner scanner = new Scanner(System.in);
+        setTailleX();
+        setTailleY();
+        boolean stop = false;
+        while(!stop) {
         for (int i = 0; i < tailleX; i++) {
             for (int j = 0; j < tailleY; j++) {
-                System.out.print(map[i][j]);
+                //System.out.print(map[i][j]);
+                System.out.println("-");
             }
             System.out.println();
         }
+        System.out.println("Appuyez sur Entrée pour arrêter l'affichage");
+        if(scanner.nextLine().isEmpty()) {
+            stop = true;
+        }
+      }
+        for(int i = 0; i < 50; i++) {
+            System.out.println();
+        }
+     }
     }
-}
