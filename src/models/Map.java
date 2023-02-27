@@ -65,6 +65,7 @@ public class Map {
         System.out.println("Appuyez sur Entrée pour arrêter l'affichage");
         if(scanner.nextLine().isEmpty()) {
             stop = true;
+            scanner.close();
         }
       }
         for(int i = 0; i < 50; i++) {
