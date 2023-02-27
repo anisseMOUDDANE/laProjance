@@ -1,6 +1,5 @@
 package models;
 
-import models.Enfant.TypeCase;
 import static utilies.Utilities.print;
 import java.util.Arrays;
 

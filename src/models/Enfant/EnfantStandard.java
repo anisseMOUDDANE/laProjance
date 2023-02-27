@@ -1,12 +1,12 @@
 package models.Enfant;
 
 import models.Position;
-import models.deplacement.Enfant;
-import models.deplacement.TypeDeplacement;
+import models.deplacement.*;
 
 import java.util.ArrayList;
 
-public class EnfantStandard implements Enfant {
+public class EnfantStandard implements Enfant, Deblacable {
+    public static int zoneBougePas = 3;
     public static int NB_ENFANTS = 0;
     private Position position;
     private EtatEnfant etat;
@@ -14,11 +14,8 @@ public class EnfantStandard implements Enfant {
     private TypeEnfant typeEnfant;
 
     @Override
-    /**
-     * @TODO Gerer le deplacment
-     */
     public void seDeplacerVers(Position position) {
-
+        System.out.println("Je me déplace vers " + position);
     }
 
 
@@ -30,6 +27,9 @@ public class EnfantStandard implements Enfant {
     public EnfantStandard(int x, int y) {
         this.position = new Position(x, y);
         this.etat = EtatEnfant.VIVANT;
+        // on vas ici generer un type de deplacement aleatoirement
+        this.typeDeplacement = TypeDeplacement.values()[(int) (Math.random() * TypeDeplacement.values().length)];
+        System.out.println("Type de deplacement de l'enfant : " + this.typeDeplacement);
     }
 
 
@@ -88,9 +88,33 @@ public class EnfantStandard implements Enfant {
 
     }
 
-    public ArrayList<Integer> getPosition() {
-        return this.position.getPosition();
+    public Position getPosition() {
+        return this.position;
     }
 
 
+    @Override
+    public void seDeplacer(Position position){
+        this.seDeplacerVers(position);
+    }
+
+    public DeplacementAdapter getTypeDeplacement() {
+        //faire un switch sur le type de deplacement et retourner le bon type de deplacement
+        switch (this.typeDeplacement){
+            case HAUT:
+                return new DeplacementHaut(this.position,null);
+            case BAS:
+                return new DeplacementBas(this.position,null);
+            case GAUCHE:
+                return new DeplacementGauche(this.position,null);
+            case DROITE:
+                return new DeplacementDroite(this.position,null);
+            case HASARD:
+                return new DeplacementAleatoire(this.position,null);
+            case NE_BOUGE_PAS:
+                return new DeplacementBougePas(this.position,null);
+            default:
+                return new DeplacementAleatoire(this.position,null);
+        }
+    }
 }

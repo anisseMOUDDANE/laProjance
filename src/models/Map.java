@@ -1,8 +1,4 @@
 package models;
-import models.Case;
-import models.Enfant.TypeCase;
-
-import static utilies.Utilities.print;
 
 /**
  * • Une carte

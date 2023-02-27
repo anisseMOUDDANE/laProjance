@@ -1,7 +1,8 @@
 package models.deplacement;
 
+import models.Position;
+
 public interface Deblacable {
-    void deblacer();
-    TypeDeplacement getTypeDeplacement();
+    void seDeplacer(Position position);
 
 }
