@@ -65,8 +65,14 @@ public class Map {
             scanner.close();
         }
       }
-        for(int i = 0; i < 50; i++) {
-            System.out.println();
-        }
+      effacerMap();
      }
+
+     public void effacerMap() {
+        //Avant nouvelle position de chaque personnage 
+      System.out.print("\033[H\033[2J");
+      System.out.flush();
+     }
+     
+
     }
