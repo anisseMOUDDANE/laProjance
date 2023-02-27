@@ -37,6 +37,7 @@ public class Map {
         System.out.println("Veuillez choisir l'axe x");
         int x = scan.nextInt();
         this.tailleX = x;
+        scan.close();
     }
 
     public void setTailleY() {
@@ -44,6 +45,7 @@ public class Map {
         System.out.println("Veuillez choisir l'axe y");
         int y = scan.nextInt();
         this.tailleY = y;
+        scan.close();
     }
 
     // genere une methode d'affichage de la map
