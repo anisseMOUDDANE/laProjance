@@ -12,9 +12,7 @@ public class Map {
     private Case[][] map;
 
 
-    public Map(int tailleX, int tailleY) {
-        this.tailleX = tailleX;
-        this.tailleY = tailleY;
+    public Map() {
         this.map = new Case[tailleX][tailleY];
     }
 
@@ -55,13 +53,12 @@ public class Map {
         setTailleY();
         boolean stop = false;
         while(!stop) {
-        for (int i = 0; i < tailleX; i++) {
             for (int j = 0; j < tailleY; j++) {
-                //System.out.print(map[i][j]);
-                System.out.println("-");
+                for (int k = 0; k < tailleX; k++) {
+                    System.out.print("-");
+                }
+                System.out.println();
             }
-            System.out.println();
-        }
         System.out.println("Appuyez sur Entrée pour arrêter l'affichage");
         if(scanner.nextLine().isEmpty()) {
             stop = true;
