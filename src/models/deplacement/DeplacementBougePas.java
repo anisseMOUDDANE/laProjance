@@ -10,7 +10,7 @@ public class DeplacementBougePas extends DeplacementAdapter{
 
     @Override
     public void seDeplacer(Position position) {
-        System.out.println("ne bouge pas");
+        //System.out.println("ne bouge pas");
     }
 
 }

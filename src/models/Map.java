@@ -85,6 +85,25 @@ public class Map {
                 }
                 System.out.println();
             }
+
+            for (int i = 0; i < tailleX; i++) {
+
+                this.map[0][i].setType(TypeCase.ROCHER);
+                this.map[0][i].setBloquant(true);
+
+                this.map[tailleX - 1][i].setType(TypeCase.ROCHER);
+                this.map[tailleX - 1][i].setBloquant(true);
+
+                this.map[i][0].setType(TypeCase.ROCHER);
+                this.map[i][0].setBloquant(true);
+
+                this.map[i][tailleY - 1].setType(TypeCase.ROCHER);
+                this.map[i][tailleY - 1].setBloquant(true);
+
+            }
+
+            effacerMap();
+
         //System.out.println("Appuyez sur Entrée pour arrêter l'affichage");
         //if(scanner.nextLine().isEmpty()) {
           //  stop = true;
@@ -100,7 +119,6 @@ public class Map {
                 for(EnfantStandard enfant : this.enfants) {
                     if(this.map[i][j].getPosition().equals(enfant.getPosition())){
                         this.map[i][j].setHoteEnfant(enfant);
-                        System.out.print(getEmoji(this.map[i][j]));
                     }
                 }
                     System.out.print(getEmoji(this.map[i][j]));
@@ -169,7 +187,7 @@ public class Map {
             returnEnfant = "👦";
         }
         if(enfant.getTypeEnfant() == TypeEnfant.NORMAL){
-            returnEnfant = "🎩";
+            returnEnfant = "🛎";
         }
         return returnEnfant;
     }

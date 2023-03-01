@@ -2,24 +2,30 @@ package models;
 
 import java.util.ArrayList;
 import java.util.Objects;
+import models.Case;
 
 public class Position {
-   private ArrayList<Integer> position;
+
+    private int x;
+    private int y;
 
     public Position(int x, int y) {
-        this.position = new ArrayList<>();
-        this.position.add(x);
-        this.position.add(y);
+        this.x = x;
+        this.y = y;
     }
 
-    public ArrayList<Integer> getPosition() {
-        return this.position;
+    public int getX() {
+        return this.x;
+    }
+
+    public int getY() {
+        return this.y;
     }
 
     @Override
     public String toString() {
         return "Position{" +
-                "position=" + position +
+                "position=" + this.y +
                 '}';
     }
 
@@ -27,8 +33,10 @@ public class Position {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Position position1 = (Position) o;
-        return Objects.equals(position, position1.position);
+        Position position = (Position) o;
+        return x == position.x && y == position.y;
     }
+
+
 
 }

@@ -3,13 +3,16 @@ package models;
 import static utilies.Utilities.print;
 import java.util.Arrays;
 
+import models.Enfant.EnfantStandard;
+
 public class Case {
     private int x;
     private int y;
     TypeCase type;
     private boolean isBloquant;
 
-    private int[] hotes;
+    private EnfantStandard hoteEnfant;
+    private Ogre hoteAngel;
 
     /**
      * • Des sols
@@ -29,7 +32,8 @@ public class Case {
         this.x = x;
         this.y = y;
         this.type = type;
-        this.hotes = new int[2];
+        this.hoteEnfant = null;
+        this.hoteAngel = null;
         /*
         * Si c'est un arbre, un rocher de l'eau, alors isBloquant = true
         * Sinon isBloquant = false
@@ -94,16 +98,28 @@ public class Case {
                 ", y=" + y +
                 ", type=" + type +
                 ", isBloquant=" + isBloquant +
-                ", hotes=" + Arrays.toString(hotes) +
+                ", hotes=" + hoteEnfant +
                 '}';
     }
 
-    public int[] getHotes() {
-        return hotes;
+    public EnfantStandard getHoteEnfant() {
+        return hoteEnfant;
     }
 
-    public void setHotes(int[] hotes) {
-        this.hotes = hotes;
+    public Ogre getHoteAngel() {
+        return hoteAngel;
+    }
+
+    public void setHoteEnfant(EnfantStandard hoteEnfant) {
+        this.hoteEnfant = hoteEnfant;
+    }
+
+    public void setHoteOgre(Ogre hoteOgre) {
+        this.hoteAngel = hoteOgre;
+    }
+
+    public Position getPosition() {
+        return new Position(x, y);
     }
 
     public void afficherCase() {

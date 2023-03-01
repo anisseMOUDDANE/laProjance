@@ -18,6 +18,10 @@ public class EnfantStandard implements Enfant, Deblacable {
         System.out.println("Je me déplace vers " + position);
     }
 
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
 
     /**
      * Constructeur de l'enfant
@@ -29,7 +33,7 @@ public class EnfantStandard implements Enfant, Deblacable {
         this.etat = EtatEnfant.VIVANT;
         // on vas ici generer un type de deplacement aleatoirement
         this.typeDeplacement = TypeDeplacement.values()[(int) (Math.random() * TypeDeplacement.values().length)];
-        System.out.println("Type de deplacement de l'enfant : " + this.typeDeplacement);
+        System.out.println("Type de deplacement de l'enfant : " + this.typeEnfant);
     }
 
 
@@ -56,6 +60,9 @@ public class EnfantStandard implements Enfant, Deblacable {
     }
 
     public TypeEnfant getTypeEnfant() {
+        if(typeEnfant == null) {
+            return TypeEnfant.NORMAL;
+        }
         return typeEnfant;
     }
 
