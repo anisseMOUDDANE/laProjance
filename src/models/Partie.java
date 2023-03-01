@@ -36,7 +36,7 @@ public class Partie {
                 if (enfant.getPosition().equals(angel.getPosition())) {
                     System.out.println("MAANNNGEEERR__--------");
                     enfants.remove(enfant);
-                    enfant.setEtat(EtatEnfant.TOMBE);
+                    enfant.setEtat(randomMort());
                     break;
                 }
             }
@@ -54,10 +54,23 @@ public class Partie {
 
     }
 
+}
 
-
-
-
+public EtatEnfant randomMort() {
+    EtatEnfant typeMort = null;
+    double random = Math.round(Math.random() * 100) / 100.0;
+    if ((random > 0 && random <= 0.30)) {
+        typeMort = EtatEnfant.OSSEMENTS;
+    }
+    else if ((random > 0.30 && random <= 0.60)) {
+        typeMort = EtatEnfant.POUSSIERE;
+   }
+    else if ((random > 0.60 && random <= 1)) {
+        typeMort = EtatEnfant.TOMBE;
+   }
+    return typeMort;
 }
 
 }
+
+

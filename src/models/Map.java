@@ -224,7 +224,7 @@ public class Map {
 
     public String getEmoji(Case myCase) {
 
-        if(myCase.getHoteEnfant() != null && myCase.getHoteEnfant().getEtat()==EtatEnfant.VIVANT){
+        if(myCase.getHoteEnfant() != null && myCase.getHoteEnfant().getEtat() == EtatEnfant.VIVANT){
             return getEmojiEnfant(myCase.getHoteEnfant());
         }
 
