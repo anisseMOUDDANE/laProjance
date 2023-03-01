@@ -52,17 +52,19 @@ public class Map {
     }
 
     public void setTailleX() {
-        Scanner scan1 = new Scanner(System.in);
-        System.out.println("Veuillez choisir l'axe x supérieur ou égal à 20");
-        int x = scan1.nextInt();
-        this.tailleX = x;
+        //Scanner scan1 = new Scanner(System.in);
+        //System.out.println("Veuillez choisir l'axe x supérieur ou égal à 20");
+        //int x = scan1.nextInt();
+        //this.tailleX = x;
+        this.tailleX = 20;
     }
 
     public void setTailleY() {
-        Scanner scan2 = new Scanner(System.in);
-        System.out.println("Veuillez choisir l'axe y supérieur ou égal à 20");
-        int y = scan2.nextInt();
-        this.tailleY = y;
+        //Scanner scan2 = new Scanner(System.in);
+        //System.out.println("Veuillez choisir l'axe y supérieur ou égal à 20");
+        //int y = scan2.nextInt();
+        //this.tailleY = y;
+        this.tailleY = 20;
     }
 
     public void genererMap(Map map, ArrayList<EnfantStandard> listeEnfants, Ogre angel) {
@@ -205,20 +207,36 @@ public class Map {
     }
 
     public String getEmojiDead(EnfantStandard enfant) {
-        // renvoyer au hasard os,poussière...
-        String returnDead = "??";
+        String returnDead = null;
+
+        if(enfant.getEtat() == EtatEnfant.OSSEMENTS ){
+            returnDead = "🛤";
+        }
+        if(enfant.getEtat() == EtatEnfant.POUSSIERE ){
+            returnDead = "🛤";
+        }
+        if(enfant.getEtat() == EtatEnfant.TOMBE ){
+            returnDead = "🛤";
+        }
+
         return returnDead;
     }
 
     public String getEmoji(Case myCase) {
+
         if(myCase.getHoteEnfant() != null && myCase.getHoteEnfant().getEtat()==EtatEnfant.VIVANT){
             return getEmojiEnfant(myCase.getHoteEnfant());
         }
-        //else if(myCase.getHoteEnfant().getEtat()==EtatEnfant.TOMBE){}
+
+        else if(myCase.getHoteEnfant() != null && myCase.getHoteEnfant().getEtat() != EtatEnfant.VIVANT){
+            return getEmojiDead(myCase.getHoteEnfant());
+        }
+
         else if(myCase.getHoteAngel() != null){
             return getEmojiAngel();
         }
         else return getEmojiCase(myCase);
+
     }
 
      public void effacerMap() {
