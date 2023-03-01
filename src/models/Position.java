@@ -25,7 +25,8 @@ public class Position {
     @Override
     public String toString() {
         return "Position{" +
-                "position=" + this.y +
+                "x=" + x +
+                ", y=" + y +
                 '}';
     }
 

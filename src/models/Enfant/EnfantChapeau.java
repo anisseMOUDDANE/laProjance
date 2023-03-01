@@ -3,25 +3,24 @@ package models.Enfant;
 import models.Position;
 import models.deplacement.Enfant;
 
-public class EnfantChapeau implements Enfant {
+public class EnfantChapeau {
 
-    private Enfant enfant;
+    private EnfantStandard enfant;
 
-    public EnfantChapeau(Enfant enfant) {
+    public EnfantChapeau(EnfantStandard enfant) {
         this.enfant = enfant;
+        enfant.setTypeEnfant(TypeEnfant.AVEC_CHAPEAU);
     }
 
     public void mettreChapeau() {
         System.out.println("Enfant chapeau met un chapeau sur sa tête");
     }
 
-    @Override
     public void seDeplacerVers(Position position) {
         enfant.seDeplacerVers(position);
 
     }
 
-    @Override
     public void mourir() {
         enfant.mourir();
     }

@@ -15,4 +15,8 @@ public abstract class DeplacementAdapter implements Deblacable{
 
    @Override
     public abstract void seDeplacer(Position position);
+
+    public Map getMap() {
+        return map;
+    }
 }

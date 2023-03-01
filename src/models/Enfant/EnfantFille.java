@@ -3,11 +3,11 @@ package models.Enfant;
 import models.Position;
 import models.deplacement.Enfant;
 
-public class EnfantFille implements Enfant {
+public class EnfantFille {
 
-    private Enfant enfant;
+    private EnfantStandard enfant;
 
-    public EnfantFille(Enfant enfant) {
+    public EnfantFille(EnfantStandard enfant) {
         this.enfant = enfant;
     }
 
@@ -15,13 +15,11 @@ public class EnfantFille implements Enfant {
         System.out.println("Enfant fille montre que c'est une fille");
     }
 
-    @Override
     public void seDeplacerVers(Position position) {
         enfant.seDeplacerVers(position);
 
     }
 
-    @Override
     public void mourir() {
         enfant.mourir();
     }

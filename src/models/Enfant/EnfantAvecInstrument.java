@@ -3,11 +3,11 @@ package models.Enfant;
 import models.Position;
 import models.deplacement.Enfant;
 
-public class EnfantAvecInstrument implements Enfant {
+public class EnfantAvecInstrument{
 
-    private Enfant enfant;
+    private EnfantStandard enfant;
 
-    public EnfantAvecInstrument(Enfant enfant) {
+    public EnfantAvecInstrument(EnfantStandard enfant) {
         this.enfant = enfant;
     }
 
@@ -15,13 +15,11 @@ public class EnfantAvecInstrument implements Enfant {
         System.out.println("Prendre son instrument");
     }
 
-    @Override
     public void seDeplacerVers(Position position) {
         enfant.seDeplacerVers(position);
 
     }
 
-    @Override
     public void mourir() {
         enfant.mourir();
     }

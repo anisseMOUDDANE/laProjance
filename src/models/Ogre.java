@@ -2,17 +2,17 @@ package models;
 
 import models.Enfant.EnfantStandard;
 import models.Enfant.EtatEnfant;
-import models.deplacement.Deblacable;
-import models.deplacement.Enfant;
-import models.deplacement.TypeDeplacement;
+import models.deplacement.*;
 
 import java.util.List;
 
 public class Ogre implements Deblacable {
     private Position position;
+    private TypeDeplacement typeDeplacement;
 
     public Ogre(Position position) {
         this.position = position;
+        this.typeDeplacement = TypeDeplacement.HASARD;
     }
 
     public void seDeplacer(Position position) {
@@ -34,6 +34,14 @@ public class Ogre implements Deblacable {
 
     public void chasser(List<EnfantStandard> enfants) {
 
+    }
+
+    public void setTypeDeplacement(TypeDeplacement typeDeplacement) {
+        this.typeDeplacement = typeDeplacement;
+    }
+
+    public DeplacementAdapter getTypeDeplacement() {
+        return new DeplacementOgre(this.position,null);
     }
 
 
