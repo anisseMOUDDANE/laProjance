@@ -7,6 +7,8 @@ import models.Enfant.EnfantStandard;
 import models.Enfant.EtatEnfant;
 import models.Enfant.TypeEnfant;
 import models.deplacement.Enfant;
+import models.Ogre;
+
 
 /**
  * • Une carte
@@ -18,6 +20,7 @@ public class Map {
     private Case[][] map;
     public static Map instanceMap = null;
     public ArrayList<EnfantStandard> enfants;
+    public Ogre angel;
 
     private Map() {
         setTailleX();
@@ -50,14 +53,14 @@ public class Map {
 
     public void setTailleX() {
         Scanner scan1 = new Scanner(System.in);
-        System.out.println("Veuillez choisir l'axe x");
+        System.out.println("Veuillez choisir l'axe x supérieur ou égal à 20");
         int x = scan1.nextInt();
         this.tailleX = x;
     }
 
     public void setTailleY() {
         Scanner scan2 = new Scanner(System.in);
-        System.out.println("Veuillez choisir l'axe y");
+        System.out.println("Veuillez choisir l'axe y supérieur ou égal à 20");
         int y = scan2.nextInt();
         this.tailleY = y;
     }
@@ -70,6 +73,7 @@ public class Map {
         //System.out.println(this.tailleY);
         //while(!stop) {
             this.enfants = listeEnfants;
+            this.angel = angel;
             for (int i = 0; i < tailleX; i++) {
                 for (int j = 0; j < tailleY; j++) {
                     this.map[i][j] = new Case(i, j, randomType());
@@ -120,6 +124,9 @@ public class Map {
                     if(this.map[i][j].getPosition().equals(enfant.getPosition())){
                         this.map[i][j].setHoteEnfant(enfant);
                     }
+                }
+                if(this.map[i][j].getPosition().equals(angel.getPosition())){
+                    this.map[i][j].setHoteOgre(angel);
                 }
                     System.out.print(getEmoji(this.map[i][j]));
                     System.out.print(" ");
@@ -192,14 +199,15 @@ public class Map {
         return returnEnfant;
     }
 
-    public String getEmojiAngel(Case caseE) {
-        String returnAngel = "👹";
+    public String getEmojiAngel() {
+        String returnAngel = "🫄";
         return returnAngel;
     }
 
     public String getEmojiDead(EnfantStandard enfant) {
-        String returnAngel = "👹";
-        return returnAngel;
+        // renvoyer au hasard os,poussière...
+        String returnDead = "??";
+        return returnDead;
     }
 
     public String getEmoji(Case myCase) {
@@ -208,7 +216,7 @@ public class Map {
         }
         //else if(myCase.getHoteEnfant().getEtat()==EtatEnfant.TOMBE){}
         else if(myCase.getHoteAngel() != null){
-            return getEmojiAngel(myCase);
+            return getEmojiAngel();
         }
         else return getEmojiCase(myCase);
     }

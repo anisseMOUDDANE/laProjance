@@ -19,7 +19,7 @@ public class ProjectDesignPattern {
         EnfantStandard e2 = new EnfantStandard(9,3);
         EnfantStandard e3 = new EnfantStandard(7,5);
         EnfantStandard e4 = new EnfantStandard(5,4);
-        Ogre angel = new Ogre(new Position(2,3));
+        Ogre angel = new Ogre(new Position(10,10));
         ArrayList<EnfantStandard> enfants = new ArrayList<>();
         enfants.add(e);
         enfants.add(e2);

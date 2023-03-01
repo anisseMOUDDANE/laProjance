@@ -6,6 +6,7 @@ import models.Enfant.EtatEnfant;
 import java.util.List;
 import java.util.ArrayList;
 import models.Map;
+import models.Ogre;
 
 public class Partie {
     private Map map;
@@ -29,6 +30,7 @@ public class Partie {
         while (cpt < enfants.size()) {
             for (EnfantStandard enfant : enfants) {
                 enfant.getTypeDeplacement().seDeplacer(enfant.getPosition());
+                angel.seDeplacer(angel.getPosition());
                 //System.out.println("Enfant : " + enfant.getPosition());
                 //System.out.println("Ogre : " + angel.getPosition());
                 if (enfant.getPosition().equals(angel.getPosition())) {
