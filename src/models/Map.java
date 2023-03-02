@@ -56,7 +56,7 @@ public class Map {
         //System.out.println("Veuillez choisir l'axe x supérieur ou égal à 20");
         //int x = scan1.nextInt();
         //this.tailleX = x;
-        this.tailleX = 8;
+        this.tailleX = 11;
     }
 
     public void setTailleY() {
@@ -64,7 +64,7 @@ public class Map {
         //System.out.println("Veuillez choisir l'axe y supérieur ou égal à 20");
         //int y = scan2.nextInt();
         //this.tailleY = y;
-        this.tailleY = 8;
+        this.tailleY = 11;
     }
 
     public void genererMap(Map map, ArrayList<EnfantStandard> listeEnfants, Ogre angel) {
@@ -184,16 +184,16 @@ public class Map {
     public String getEmojiEnfant(EnfantStandard enfant) {
         String returnEnfant = null;
         if(enfant.getTypeEnfant() == TypeEnfant.AVEC_CHAPEAU){
-            returnEnfant = "🎩";
+            returnEnfant = "🥷";
         }
         if(enfant.getTypeEnfant() == TypeEnfant.AVEC_INSTRUMENT){
             returnEnfant = "🎸";
         }
         if(enfant.getTypeEnfant() == TypeEnfant.FILLE){
-            returnEnfant = "👧";
+            returnEnfant = "🏊";
         }
         if(enfant.getTypeEnfant() == TypeEnfant.GARCON){
-            returnEnfant = "👦";
+            returnEnfant = "🕴";
         }
         if(enfant.getTypeEnfant() == TypeEnfant.NORMAL){
             returnEnfant = "🛎";
@@ -210,13 +210,13 @@ public class Map {
         String returnDead = null;
 
         if(enfant.getEtat() == EtatEnfant.OSSEMENTS ){
-            returnDead = "🛤";
+            returnDead = "🪷";
         }
         if(enfant.getEtat() == EtatEnfant.POUSSIERE ){
-            returnDead = "🛤";
+            returnDead = "🪹";
         }
         if(enfant.getEtat() == EtatEnfant.TOMBE ){
-            returnDead = "🛤";
+            returnDead = "🌪";
         }
 
         return returnDead;
