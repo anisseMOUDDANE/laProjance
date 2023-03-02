@@ -56,7 +56,7 @@ public class Map {
         //System.out.println("Veuillez choisir l'axe x supérieur ou égal à 20");
         //int x = scan1.nextInt();
         //this.tailleX = x;
-        this.tailleX = 11;
+        this.tailleX = 15;
     }
 
     public void setTailleY() {
@@ -64,7 +64,7 @@ public class Map {
         //System.out.println("Veuillez choisir l'axe y supérieur ou égal à 20");
         //int y = scan2.nextInt();
         //this.tailleY = y;
-        this.tailleY = 11;
+        this.tailleY = 15;
     }
 
     public void genererMap(Map map, ArrayList<EnfantStandard> listeEnfants, Ogre angel) {
